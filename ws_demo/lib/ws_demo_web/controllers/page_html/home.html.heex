@@ -1,0 +1,11 @@
+<link phx-track-static rel="stylesheet" href={~p"/assets/home.css"} />
+<.flash_group flash={@flash} />
+<script>
+const exampleSock = new WebSocket("ws://localhost:4000/socket/websocket");
+exampleSock.addEventListener("open", (ev) => {
+  exampleSock.send("Here's some text that the server is urgently awaiting!");
+});
+exampleSock.addEventListener("message", (event) => {
+  console.log("Message from server:", event.data);
+});
+</script>
